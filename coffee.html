@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAR CAFE</title>
+    <link rel="stylesheet" href="ems.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --charcoal: #1e1b18;
+            --coffee: #5a3825;
+            --cream: #f6efe6;
+            --ember: #d9622b;
+            --ember-dark: #b94d1d;
+            --text: #2b2420;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo"> ☕ CHAR<span> CAFE</span></a>
+            <ul>
+                <li class="hide-mobile"><a href="#menu">Menu</a></li>
+                <li class="hide-mobile"><a href="#about">About</a></li>
+                <li class="hide-mobile"><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#menu" class="btn">Order Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+
+        <section class="hero">
+            <div class="container">
+                <h1>Bold coffee, <span>roasted</span> with heart.</h1>
+                <p>Welcome to CHAR CAFE, where every cup is made to wake up your day and warm your soul.</p>
+                <a href="#menu" class="btn">See Our Menu</a>
+            </div>
+        </section>
+
+        <section id="menu">
+            <div class="container">
+                <h2 class="section-title">Our Menu</h2>
+                <p class="section-sub">Freshly brewed favorites.</p>
+
+                <div class="menu-grid">
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="images/espresso.jpg" alt="Espresso" onerror="this.remove()">
+                            ☕
+                        </div>
+                        <div class="card-body">
+                            <h3>Espresso</h3>
+                            <p>Our signature dark roast, strong and smooth.</p>
+                            <div class="card-actions">
+                                <span class="price">₱90</span>
+                                <button class="btn" onclick="addToOrder('Espresso', 90)">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="images/caramel-latte.jpg" alt="Caramel Latte" onerror="this.remove()">
+                            🥛
+                        </div>
+                        <div class="card-body">
+                            <h3>Caramel Latte</h3>
+                            <p>Espresso, steamed milk, and rich caramel.</p>
+                            <div class="card-actions">
+                                <span class="price">₱120</span>
+                                <button class="btn" onclick="addToOrder('Caramel Latte', 120)">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="images/iced-americano.jpg" alt="Iced Americano" onerror="this.remove()">
+                            🧊
+                        </div>
+                        <div class="card-body">
+                            <h3>Iced Americano</h3>
+                            <p>Cold, crisp, and refreshing any time of day.</p>
+                            <div class="card-actions">
+                                <span class="price">₱100</span>
+                                <button class="btn" onclick="addToOrder('Iced Americano', 100)">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="images/butter-croissant.jpg" alt="Butter Croissant" onerror="this.remove()">
+                            🥐
+                        </div>
+                        <div class="card-body">
+                            <h3>Butter Croissant</h3>
+                            <p>Flaky and golden, the perfect coffee partner.</p>
+                            <div class="card-actions">
+                                <span class="price">₱85</span>
+                                <button class="btn" onclick="addToOrder('Butter Croissant', 85)">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="order-box">
+                    <h3>Your Order</h3>
+                    <p id="orderEmpty" class="order-empty">Your order is empty. Add something from the menu!</p>
+                    <ul id="orderList"></ul>
+                    <p class="order-total">Total: <strong id="orderTotal">₱0</strong></p>
+                    <button id="placeOrderBtn" class="btn" onclick="placeOrder()">Place Order</button>
+                    <p id="orderMessage" class="order-message"></p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container about-grid">
+                <div>
+                    <h2>Our <span>Story</span></h2>
+                    <p>CHAR CAFE started as a personal passion project, a love for good coffee and a cozy place to enjoy it.</p>
+                    <p>The reason why we exist is to bring people together over a shared love for great coffee and meaningful connections.</p>
+                </div>
+                <div class="about-img"></div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-sub"></p>
+
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="images/gallery1.jpg" alt="CHAR CAFE photo 1" onerror="this.remove()">
+                        <span>Photo 1</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery2.jpg" alt="CHAR CAFE photo 2" onerror="this.remove()">
+                        <span>Photo 2</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery3.jpg" alt="CHAR CAFE photo 3" onerror="this.remove()">
+                        <span>Photo 3</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery4.jpg" alt="CHAR CAFE photo 4" onerror="this.remove()">
+                        <span>Photo 4</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery5.jpg" alt="CHAR CAFE photo 5" onerror="this.remove()">
+                        <span>Photo 5</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery6.jpg" alt="CHAR CAFE photo 6" onerror="this.remove()">
+                        <span>Photo 6</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact &amp; Orders</h2>
+                <p class="section-sub">Questions or pre-orders? Send us a message.</p>
+
+                <div class="contact-grid">
+
+                    <div class="contact-info">
+                        <h3>Visit CHAR CAFE</h3>
+                        <br>
+                        <p>📍 Elisa Homes Molino 4 Bacoor Cavite</p>
+                        <p>🕖 Mon to Sun: 8:00 AM to 8:00 PM</p>
+                        <p>📞 09931328891</p>
+                        <p>✉️ bacharjohnmark@gmail.com</p>
+                        <p>📘 Facebook : JM Bachar &nbsp; 📸 Instagram : emzwhatt</p>
+                    </div>
+
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Your name" required>
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <textarea name="message" rows="5" placeholder="Your message or order" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                        <p id="formStatus" class="form-status"></p>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2026 CHAR CAFE. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
